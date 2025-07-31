@@ -1,0 +1,98 @@
+Use Case: Salesforce Automation for Replastix Innovations
+Business Context
+Replastix Innovations is a forward-thinking organization in the field of plastic recycling and waste management. To enhance operational efficiency and streamline workflows, the company has integrated Salesforce as its central platform for managing critical business functions, including inventory, order processing, restock requests, data security, and reporting.
+
+Use Case Summary
+The Salesforce implementation at Replastix Innovations automates and manages the following key processes:
+
+Monitoring product stock levels
+
+Generating and approving restock requests
+
+Automating task assignments and status updates
+
+Sending real-time email notifications
+
+Providing real-time reporting and analytics
+
+Enforcing robust data security via roles and profiles
+
+Salesforce Features Used
+Feature	Description
+Custom Objects	Defined for orders, recycled products, and restock requests
+Auto Number Fields	Automatically generate unique IDs for order and request records
+Lookup Relationships	Connect customers and products to orders and requests
+Roles & Profiles	Provide granular access control to different user groups
+Flow Builder	Automate low stock detection, task creation, and record updates
+Apex Code	Programmatically approve requests and trigger custom logic
+Email Alerts	Notify stakeholders when restock requests are approved
+Reports & Dashboards	Track KPIs, order volume, stock levels, and approval rates
+
+Process Flow
+Order Placement
+A sales representative creates a new record in the Re_Plastic_Innovations_Order__c object.
+
+Inventory Monitoring
+A flow checks the current stock (Stock_Quantity__c) in the Recycled_Product__c object when an order is placed or when product quantity changes.
+
+Low Stock Automation
+If the stock falls below the defined threshold:
+
+A task record is automatically created and assigned to the inventory owner.
+
+A Re_Plastic_Innovations_Restock_Request__c record is created with status set to "Pending".
+
+Request Approval
+The request is reviewed and approved either manually or through an Apex trigger or flow.
+Upon approval:
+
+The product status is updated.
+
+An email is sent to the warehouse manager with the updated product information.
+
+Warehouse Restocking
+The warehouse team restocks the item, updates the stock quantity field, and changes the restock request status to "Completed".
+
+Data Security Implementation
+Roles: Structured hierarchy for Administrator, Sales, Inventory Manager, and Warehouse roles
+
+Profiles: Control CRUD (Create, Read, Update, Delete) permissions based on user responsibilities
+
+Field-Level Security (FLS): Restrict access to sensitive fields such as pricing and supplier details
+
+Reporting and Analytics
+Custom reports and dashboards provide real-time visibility into:
+
+Product stock levels
+
+Pending and completed restock requests
+
+Order fulfillment status
+
+Time taken to process and complete restock requests
+
+Key performance indicators (KPIs) aligned with sustainability and operational goals
+
+Business Benefits
+Reduces stockouts with automated alerts and restock processes
+
+Minimizes manual intervention through end-to-end workflow automation
+
+Improves coordination across procurement, inventory, and warehouse teams
+
+Enhances data security through structured roles and access control
+
+Enables data-driven decision-making with real-time reports and dashboards
+
+Learning Areas Covered
+Salesforce Data Modeling (Objects, Fields, Relationships)
+
+Salesforce Data Security (Roles, Profiles, Field-Level Security)
+
+Flow Builder Automation
+
+Apex Triggers for Approval Processes
+
+Email Notification Configuration
+
+Report and Dashboard Development
